@@ -1,0 +1,508 @@
+/*
+ * Group 14
+ * CS3380 Term Project
+ * GLOBAL STYLES
+ */
+
+/* the root holds global colors */
+:root {
+    /*
+    --lightFade: #D4DDCC;
+    --light: #DDDDCC;
+    --lightHover: #E7DDCC;
+
+    --darkFade: GoldenRod;
+    --dark: DarkGoldenRod;
+    --darkHover: Black;
+
+    --linkFade: LightSlateGrey;
+    --link: DarkSlateGrey;
+    --linkHover: Black;
+
+    --accentFade: OliveDrab;
+    --accent: Olive;
+    --accentHover: DarkOliveGreen;
+    */
+    --lightFade: #FFF8CC;
+    --light: #DAD092;
+    --lightHover: #CDBB3F;
+
+    --darkFade: #CDA43F;
+    --dark: #B8860B;
+    --darkHover: #6E4E00;
+
+    --linkFade: #CD893F;
+    --link: #B8650B;
+    --linkHover: #6E3900;
+
+    --accentFade: #37458D;
+    --accent: #16277E;
+    --accentHover: #020D4B;
+}
+
+#ajax-message {
+    transition: all 0.2s ease-in-out;
+}
+
+aside {
+    text-align: right;
+    margin: 1.5em;
+}
+aside a {
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    color: var(--link);
+    padding: 0.5em;
+    transition:all 0.1s ease-in-out;
+}
+aside a:hover {
+    color: var(--linkHover);
+    background-color: var(--lightHover);
+    transition:all 0.3s ease-in-out;
+}
+.good {
+    color: green;
+}
+.bad {
+    border: 1px solid red;
+    border-radius: 0.3em;
+    color: red;
+    padding: 0.5em;
+    /*text-align: center;*/
+}
+body {
+    background-color: var(--darkHover);
+    background-image:url("http://www.publicdomainpictures.net/pictures/150000/velka/kansas-city-union-station.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+img {
+    height: auto;
+    max-width: 100%;
+}
+.logout {
+    background-color: var(--darkFade);
+    border: 1px solid var(--accent);
+    color: var(--link);
+    text-align: center;
+    text-decoration: none;
+
+    display: block;
+    padding: 0.3em;
+
+    transition:all 0.5s ease-in-out;
+}
+.logout:hover {
+    background-color: var(--linkHover);
+    transition:all 0.2s ease-in-out;
+}
+main {
+    background: var(--lightFade);
+    border: 2px solid var(--dark);
+    border-radius: 0.3em;
+    padding: 1em;
+    margin: auto;
+    max-width:800px; /* page is 800 pixels at most */
+    font-family: 'Lato'; /* uses Google's font API, must be linked in meta.php */
+}
+#h {
+    color: #ffffff;
+}
+.home-link a {
+    color: black !important;
+    background: transparent url("/~GROUP14/img/Missouri_Rail_Logo_Draft_Color.png") no-repeat center;
+    background-size: 50px 50px;
+    font-weight: bold;
+    font-family: 'Eczar'; /* uses Google's font API, must be linked in meta.php */
+    text-decoration: none !important;
+    text-shadow:0px 0px 6px var(--lightFade);
+}
+@media screen and (max-width: 640px) { /* word wrap on mobile */
+    .home-link a {
+        background: none;
+    }
+}
+#userbox {
+    background-color: var(--light);
+    border: 1px solid var(--accent);
+}
+iframe {
+    border: none;
+    display: block;
+    margin: auto;
+}
+table {
+    width: 100%;
+    margin-bottom: 2em;
+}
+th {
+    border-bottom: 1px solid var(--accent);
+}
+td {
+    border-bottom: 1px solid var(--accentFade);
+    word-wrap: break-word;
+}
+table > tbody > tr {
+  transition: background-color .25s ease;
+}
+
+table > tbody > tr:hover {
+  background-color: var(--lightHover);
+}
+@media screen and (max-width: 640px) { /* word wrap on mobile */
+    table {
+        table-layout: fixed;
+    }
+}
+.warning {
+    color: red;
+}
+/* Form stuff */
+form {
+    display: flex;
+}
+fieldset {
+    flex: 1;
+}
+input, label, select, button {
+    border-radius: 5px;
+    display: inline-block;
+    padding: 10px;
+    margin: 4px;
+}
+input[type="checkbox"], input[type="checkbox"] + label {
+    padding: 0;
+    margin: 0;
+}
+input[type="radio"] + label { /* label following radio */
+    background: var(--light);
+    border: 1px solid grey;
+    color: darkgrey;
+    cursor: pointer;
+}
+input[type="radio"] { /* hide radio buttons, use labels instead */
+    display: none;
+}
+input[type="radio"]:checked + label { /* label following checked radio */
+    background: var(--lightHover);
+    border-color: var(--accent);
+    color: var(--darkHover);
+}
+input[type="submit"], button {
+    cursor: pointer;
+}
+.vertical-form {
+    flex-direction: column;
+}
+@media screen and (max-width: 640px) { /* vertical form on mobile */
+    form {
+        flex-direction: column;
+    }
+}
+/* Header */
+header {
+    font-family: 'Petrona'; /* uses Google's font API, must be linked in meta.php */
+    margin: 9em auto 0px auto; /*<*/
+}
+header h1, header h2 {
+    margin: 1px;
+    text-align: center;
+}
+/* Navigation Bar */
+nav {
+    background-color: var(--lightFade);
+    border-top: 2px solid var(--dark);
+    border-bottom: 2px solid var(--dark);
+    opacity: 0.85;
+    text-align: center;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    transition: opacity 0.2s ease-out;
+}
+nav:hover {
+    opacity: 100;
+    transition: opacity 0.2s ease-in;
+}
+nav a {
+    color: var(--dark);
+    padding: 0.5em;
+    text-decoration:none;
+}
+nav a:hover {
+    text-shadow:0px 0px 8px var(--accent);
+    transition:all 0.2s ease-in-out;
+}
+nav ul {
+    margin: 0.5em auto;
+    padding: 0;
+    list-style-type:none;
+}
+nav li {
+    display:inline-block;
+    padding: 0;
+}
+nav form, nav input {
+    padding: 0;
+    margin: 0;
+    display: inline !important;
+}
+/* Footer stuff */
+footer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+footer p {
+    flex: 1;
+}
+footer .footer-text {
+    background-color: var(--lightFade);
+    font-size: smaller;
+}
+
+/* alerts copied from Bootstrap */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+.alert .alert-link {
+  font-weight: bold;
+}
+.alert > p,
+.alert > ul {
+  margin-bottom: 0;
+}
+.alert > p + p {
+  margin-top: 5px;
+}
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: 35px;
+}
+.alert-dismissable .close,
+.alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.alert-success hr {
+  border-top-color: #c9e2b3;
+}
+.alert-success .alert-link {
+  color: #2b542c;
+}
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-info hr {
+  border-top-color: #a6e1ec;
+}
+.alert-info .alert-link {
+  color: #245269;
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+.alert-warning .alert-link {
+  color: #66512c;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert-danger hr {
+  border-top-color: #e4b9c0;
+}
+.alert-danger .alert-link {
+  color: #843534;
+}
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+       -o-transition: opacity .15s linear;
+          transition: opacity .15s linear;
+}
+.fade.in {
+  opacity: 1;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  text-decoration: none;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+
+
+/* flow-text copied from Materialize */
+.flow-text {
+  /*font-weight: 300;*/
+}
+
+@media only screen and (min-width: 360px) {
+  .flow-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 390px) {
+  .flow-text {
+    font-size: 1.224rem;
+  }
+}
+
+@media only screen and (min-width: 420px) {
+  .flow-text {
+    font-size: 1.248rem;
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  .flow-text {
+    font-size: 1.272rem;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .flow-text {
+    font-size: 1.296rem;
+  }
+}
+
+@media only screen and (min-width: 510px) {
+  .flow-text {
+    font-size: 1.32rem;
+  }
+}
+
+@media only screen and (min-width: 540px) {
+  .flow-text {
+    font-size: 1.344rem;
+  }
+}
+
+@media only screen and (min-width: 570px) {
+  .flow-text {
+    font-size: 1.368rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .flow-text {
+    font-size: 1.392rem;
+  }
+}
+
+@media only screen and (min-width: 630px) {
+  .flow-text {
+    font-size: 1.416rem;
+  }
+}
+
+@media only screen and (min-width: 660px) {
+  .flow-text {
+    font-size: 1.44rem;
+  }
+}
+
+@media only screen and (min-width: 690px) {
+  .flow-text {
+    font-size: 1.464rem;
+  }
+}
+
+@media only screen and (min-width: 720px) {
+  .flow-text {
+    font-size: 1.488rem;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .flow-text {
+    font-size: 1.512rem;
+  }
+}
+
+@media only screen and (min-width: 780px) {
+  .flow-text {
+    font-size: 1.536rem;
+  }
+}
+
+@media only screen and (min-width: 810px) {
+  .flow-text {
+    font-size: 1.56rem;
+  }
+}
+
+@media only screen and (min-width: 840px) {
+  .flow-text {
+    font-size: 1.584rem;
+  }
+}
+
+@media only screen and (min-width: 870px) {
+  .flow-text {
+    font-size: 1.608rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .flow-text {
+    font-size: 1.632rem;
+  }
+}
+
+@media only screen and (min-width: 930px) {
+  .flow-text {
+    font-size: 1.656rem;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .flow-text {
+    font-size: 1.68rem;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .flow-text {
+    font-size: 1.2rem;
+  }
+}
