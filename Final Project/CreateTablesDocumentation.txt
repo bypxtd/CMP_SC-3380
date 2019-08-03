@@ -1,0 +1,53 @@
+Create Tables Documentation
+04/23/2017
+
+Person:
+Person is a key table in this database. It contains the primary key UserID, the main identifier for every user in the table, which is key for linking to Customers and Employee. It also contains the fields FirstName which identifies the first name of the person, LastName which identifies the last name of the person, and Graveyard which identifies the persons status.
+
+LogEntry:
+The Log table contains the primary key LogNumber which is the unique label for each log that is made. It also contains the fields IP for the IP address of the log that is being made, LogDate for the date of the log that is being made, LogTime for the time that the log is being made, and ActionKey which is used to take down that actual information that is being logged.
+
+Customers:
+Customers is used to identify a person from the Person table as a customer of the company. It does this by having UserID as a foreign key. This table also supplies the company that the customer represents with CompanyID.
+
+Employee:
+Employee is similar to the Customers table because it identifies people from the Person table. It also does this using UserID as a foreign key.
+
+Authentication:
+The Authentication table is used to hold credentials for Employee to log into the system using the Password field. It receives UserID from the Person table as a foreign key via the Employee table .It also contains the roles that the employee has in the Roles field.
+
+Administrator:
+The Administrator table is used to identify a person from the Person table as an administrator of the company using the foreign key UserID that it received from the Employee table.
+
+Engineer:
+The Engineer table is used to identify a person from the Person tables an engineer of the company using the foreign key UserID that it receives from the Employee table. It also contains the Status field which shows the current status of the engineer, the Rank field which shows the rank of the engineer for assignment purposes, and the TotalHours field which shows the total number of hours that engineer has logged in his time with the company.
+
+Conductor:
+The Conductor table is used to identify a person from the Person tables a conductor of the company using the foreign key UserID that it receives from the Employee table. It also contains the Status field which shows the current status of the conductor and the Rank field which shows the rank of the engineer for assignment purposes.
+
+Train:
+The Train table is used to show a train which is a complete set of equipment. It has its primary key in the TrainNumber field. It also contains the DepartureTime field which holds the time that the train will depart and the DepartureDate field which holds the date that the train will depart.
+
+EngineerHistory:
+EngineerHistory is a table used to log the history of the train assignments that the engineer has been placed on. It receives the foreign keys UserID via the Engineer table and TrainNumber via the Train table.
+
+ConductorHistory:
+ConductorHistory is a table used to log the history of the train assignments that the conductor has been placed on. It receives the foreign keys UserID via the Conductor table and TrainNumber via the Train table.
+
+Equipment:
+The Equipment table is used to identify the equipment that is being used to create the trains. It has its primary key in SerialNumber. It also contains the Type field which shows the type of equipment, the Manufacturer field which shows who manufactured the equipment, and the Price field which shows the price of the equipment.
+
+Reservation:
+The Reservation table holds the reservations for the trains and the equipment that makes up the train made by the customers. It contains the foreign key TrainNumber that it received via the Train table, the foreign key SerialNumber that it receives via the Equipment table, the foreign key that it receives via the Customer table, and it contains the Cargo field which is used to describe the cargo that the train will be carrying.
+
+EngineHistory:
+The EngineHistory table is used to show what engines have pulled which trains. It has the foreign key Serial number that it received via the Equipment table and the foreign key TrainNumber that it received via the Train table.
+
+Location:
+The Location table contains the information of the locations of stations within our company’s use. It has a compound primary key in Zip field which hold the zip code of the station and the Address field which holds the address of the station. It also contains the Name Field which holds the name of the station, the City field which holds the name of the city the station is in, and the State field which holds the name of the state the station is in.
+
+Destination:
+The Destination table is used to mark a location from the Location table as a destination. It has a compound primary key made up of the foreign keys Zip that it receives via the Location table, Address that it receives via the Location table, and TrainNumber that it receives via the Train table.
+
+Departure:
+The Departure table is used to mark a location from the Location table as a Departure. It has a compound primary key made up of the foreign keys Zip that it receives via the Location table, Address that it receives via the Location table, and TrainNumber that it receives via the Train table.
